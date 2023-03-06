@@ -34,7 +34,6 @@ function Media() {
 
             </div>
 
-
             <div className='rounded-t-3xl m-2 bg-black h-fit w-full relative flex flex-col items-center'>
                 <h1 className='font-bold text-white text-center text-3xl m-2'>Videos</h1>
                 <div className='flex lg:felx-row flex-col'>
