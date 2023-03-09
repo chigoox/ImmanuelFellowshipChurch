@@ -1,26 +1,47 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { AiOutlineMenu, AiOutlineClose, AiFillFacebook } from "react-icons/ai";
 import './App.css'
 import About from './Pages/About';
+import Admin from './Pages/Admin';
 import Home from './Pages/Home';
 import Media from './Pages/Media';
 import Services from './Pages/Services';
+import { fetchDocument } from './MyCodes/ed5';
 
 function App() {
   const [showMenu, setShowMenu] = useState()
-  const toggleMenu = () => { setShowMenu(!showMenu) }
-  const menuItems = ['Home', 'Media', 'Services', 'Motivation']
+  const [events, setEvents] = useState()
+  const [videos, setVideos] = useState()
+  const [links, setLinks] = useState()
   const [selectedMenu, setSeletctedMenu] = useState({ Home: true })
+  const toggleMenu = () => { setShowMenu(!showMenu) }
+
+
+  const menuItems = ['Home', 'Media', 'Services', 'Motivation', 'Admin']
   const menuMap = menuItems.map((item) => {
-    return (
+    return (item != "Admin") ? (
       <button key={item} onClick={() => { setSeletctedMenu({ [item]: true }) }}
         className={`${selectedMenu[item] ? 'bg-blue-400' : 'bg-white'} w-[90%] h-12 my-8 rounded hover:font-bold hover:text-white hover:bg-slate-600`}
+      >
+        <h1>{showMenu ? item : ''}</h1>
+      </button>
+    ) : (
+      <button key={item} onClick={() => { setSeletctedMenu({ [item]: true }) }}
+        className={`${selectedMenu[item] ? 'bg-blue-400' : 'bg-black'} w-[10%] transition-all ease-in duration-[9000ms] h-12 my-8 rounded hover:font-bold hover:text-white hover:bg-slate-600`}
       >
         <h1>{showMenu ? item : ''}</h1>
       </button>
     )
   })
 
+
+
+  useEffect(() => {
+    const collection = 'DATASTORE'
+    fetchDocument(collection, 'Events', setEvents)
+    fetchDocument(collection, 'Videos', setVideos)
+    fetchDocument(collection, 'Links', setLinks)
+  }, [])
 
   return (
     <div className="App h-full bg-slate-200">
@@ -37,15 +58,19 @@ function App() {
 
       {/* PAGES */}
       {selectedMenu.Home && <Home />}
-      {selectedMenu.Services && <Services />}
+      {selectedMenu.Services && <Services events={events} />}
       {selectedMenu.Motivation && <About />}
-      {selectedMenu.Media && <Media />}
+      {selectedMenu.Media && <Media videos={videos} />}
+      {selectedMenu.Admin && <Admin />}
+
 
 
       {/* Footer */}
       <div className='bg-black bottom-0 w-full p-10 '>
         <div className='flex justify-center h-12 text-center  w-full lg:mb-10  text-white text-5xl'>
-          <button className=''><AiFillFacebook /></button>
+          <a href={links?.facebook}>
+            <button className=''><AiFillFacebook /></button>
+          </a>
         </div>
         <div className='w-full lg:h-32 mb-10 flex flex-col justify-center items-center h-72'>
 

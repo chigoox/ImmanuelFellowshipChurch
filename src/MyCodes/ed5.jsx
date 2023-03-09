@@ -1,9 +1,9 @@
-import { ref, getDownloadURL, uploadBytesResumable, deleteObject } from "firebase/storage";
-import { collection, arrayUnion, arrayRemove, increment, deleteDoc, doc, setDoc, getDocs, getDoc, updateDoc, deleteField } from "firebase/firestore";
-import { AUTH, DATABASE, STORAGE } from '../config/Firebase';
+
+import { collection, doc, setDoc, getDocs, getDoc, updateDoc, deleteField } from "firebase/firestore";
+import { DATABASE } from '../../Firebase'
 import React, { useEffect, useState } from 'react'
 import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { TabRouter } from "@react-navigation/native";
+
 
 
 export function handleInput5(key, value, stateSetter) {
@@ -26,32 +26,18 @@ export function handleInput5(key, value, stateSetter) {
 
 
 
-export async function addToDatabase(data, collection, document) {
+export async function addToDatabase(collection, Doc, field, data) {
 
 
-    const docRef = doc(DATABASE, collection, document)
-    await setDoc(docRef, data, { merge: true });
-
-}
-
-
-async function deleteUserData5(user, data) {
-    const userData = doc(DATABASE, 'Users', `${user?.email}${user.uid}`);
-    // Remove the 'capital' field from the document
-    await updateDoc(userData, {
-        [data]: deleteField()
-    });
+    await setDoc(doc(DATABASE, collection, Doc), {
+        [field]: data,
+    }, { merge: true });
 
 }
 
-async function deleteAdminData5(collection, Doc, field) {
-    const userData = doc(DATABASE, collection, Doc);
-    // Remove the 'capital' field from the document
-    await updateDoc(userData, {
-        [field]: deleteField()
-    });
 
-}
+
+
 
 
 
@@ -73,4 +59,4 @@ async function fetchDocument(collection, document, setterfunction) {
 }
 
 
-export { fetchDocument, deleteAdminData5, deleteUserData5, fetchData }
+export { fetchDocument }

@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function Media() {
+
+function Media({ videos }) {
+    console.log(videos)
+
     return (
         <div className='bg-white h-fit w-full relative overflow-y-scroll overflow-hidden'>
 
@@ -39,7 +42,7 @@ function Media() {
                 <div className='flex lg:felx-row flex-col'>
                     <div className='h-content m-10 p-10'>
                         <iframe className='lg:w-[600px] border-4 lg:h-[400px] relative bottom-14'
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                            src={`https://www.youtube.com/embed/${videos.vid1}`}>
                         </iframe>
                     </div>
                     <div className='p-10 m-10'>
@@ -54,7 +57,8 @@ function Media() {
                     </div>
                     <div className='h-content m-10 p-10'>
                         <iframe className='lg:w-[600px] border-4 lg:h-[400px] relative bottom-14'
-                            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+                            src={`https://www.youtube.com/embed/${videos.vid2}`}>
+
                         </iframe>
                     </div>
 
