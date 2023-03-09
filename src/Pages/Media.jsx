@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 
 
 function Media({ videos }) {
-    console.log(videos)
+
 
     return (
         <div className='bg-white h-fit w-full relative overflow-y-scroll overflow-hidden'>

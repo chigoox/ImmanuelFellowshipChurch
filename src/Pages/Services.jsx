@@ -2,11 +2,16 @@ import React, { useState } from 'react'
 
 function Services({ events, service }) {
 
+    const array = events ? Object.values(events).sort((a, b) => {
+        console.log(a, b)
+        return (a - b)
+    }) : []
 
-    const eventsMap = Object.keys(events).map((event) => {
-        console.log(event)
+
+    const eventsMap = Object.values(array[0] ? array[0] : []).map((event) => {
         return (
             <Event title={event.title}
+                key={event.title}
                 date={event.date}
                 time={event.time}
                 desc={event.desc} />
@@ -37,9 +42,9 @@ function Services({ events, service }) {
                 <div className='bg-slate-100 w-[95%] lg:w-[50rem] h-[30rem] m-2 shadow-sm shadow-black'>
                     <div className="flex flex-col p-4">
                         <h1 className='text-2xl font-bold text-center w-full'>Regular Service Schedule</h1>
-                        <h1 className='font-bold my-4 text-center w-full'> Sunday Worship - {service.sundayTime} Contemporary service</h1>
+                        <h1 className='font-bold my-4 text-center w-full'> Sunday Worship - {service?.sundayTime} Contemporary service</h1>
                         <h1 className='font-bold my-2 text-center w-full'>
-                            Thursday Bible Study - {service.thursdayTime} Interactive discussion - style Bible study
+                            Thursday Bible Study - {service?.thursdayTime} Interactive discussion - style Bible study
                         </h1>
                     </div>
                 </div>

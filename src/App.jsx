@@ -27,7 +27,7 @@ function App() {
         <h1>{showMenu ? item : ''}</h1>
       </button>
     ) : (
-      <button key={item} onClick={() => { setSeletctedMenu({ [item]: true }) }}
+      <button key={item} onClick={() => { setSeletctedMenu({ [item]: true }); toggleMenu() }}
         className={`${selectedMenu[item] ? 'bg-blue-400' : 'bg-black'} w-[10%] transition-all ease-in duration-[9000ms] h-12 my-8 rounded hover:font-bold hover:text-white hover:bg-slate-600`}
       >
         <h1>{showMenu ? item : ''}</h1>
@@ -63,7 +63,7 @@ function App() {
       {selectedMenu.Services && <Services events={events} service={service} />}
       {selectedMenu.Motivation && <About />}
       {selectedMenu.Media && <Media videos={videos} />}
-      {selectedMenu.Admin && <Admin toggleMenu={toggleMenu} />}
+      {selectedMenu.Admin && <Admin />}
 
 
 

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { handleInput5, addToDatabase } from '../MyCodes/ed5'
 
-function Admin({ toggleMenu }) {
+function Admin() {
     const addEvent = (data) => {
         setColor(true)
         addToDatabase('DATASTORE', 'Events', 'events', { [data.title]: data })
@@ -26,12 +26,12 @@ function Admin({ toggleMenu }) {
         return time.join(''); // return adjusted time or original string
     }
 
-    useEffect(() => { if (passwordCorrect) toggleMenu() }, [passwordCorrect])
+
 
     return (
         <div className='bg-white h-fit w-full relative overflow-y-scroll flex flex-col justify-center border-black border items-center'>
             {!passwordCorrect && <div className='absolute z-20 bg-rose-700 h-full w-full flex'>
-                <div className="h-[50%] w-[40%] m-auto bg-slate-900">
+                <div className="h-[50%] w-[90%] lg:w-[40%] m-auto bg-slate-900">
                     <h1 className='text-4xl text-white text-center font-bold'>PASSWORD?</h1>
                     <input onChange={({ target }) => { handleInput5(target.name, target.value, setPassword) }} className='w-full h-24 m-auto text-2xl p-2 text-center' type="password" name="pass" id="" />
                 </div>
@@ -51,9 +51,10 @@ function Admin({ toggleMenu }) {
                         <div className={`${color ? 'bg-blue-700' : ''} hover:bottom-5 bottom-0 hover:scale-105 transition-all duration-1000 ease-in-out relative  shadow p-4 shadow-black flex flex-col justify-center items-center h-[75%]`}>
                             <input name='title' onChange={({ target }) => { handleInput5(target.name, target.value, setEvent) }} className='w-[90%] m-1 font-bold text-black focus:scale-110 duration-500 ease-in-out transition-all' placeholder='Event Title' type="text" />
                             <div className={`flex p-4 m-auto`}>
-                                <input name='date' onChange={({ target }) => { handleInput5(target.name, target.value, setEvent) }} className='focus:scale-110 duration-500 ease-in-out transition-all w-[50%] m-1 font-bold text-black' placeholder='Event date' type="text" />
-                                <input name='time' onChange={({ target }) => { handleInput5(target.name, target.value, setEvent) }} className='focus:scale-110 duration-500 ease-in-out transition-all w-[50%] m-1 font-bold text-black' placeholder='Event date' type="text" />
+                                <input name='date' onChange={({ target }) => { handleInput5(target.name, target.value, setEvent) }} className='focus:scale-110 duration-500 ease-in-out transition-all w-[50%] m-1 font-bold text-black' placeholder='Event date' type="date" />
+                                <input name='time' onChange={({ target }) => { handleInput5(target.name, timeConvert(target.value), setEvent) }} className='focus:scale-110 duration-500 ease-in-out transition-all w-[50%] m-1 font-bold text-black' placeholder='Event date' type="time" />
                             </div>
+
                             <textarea name='desc' onChange={({ target }) => { handleInput5(target.name, target.value, setEvent) }} className='focus:scale-110 duration-500 ease-in-out transition-all w-[90%] m-1 h-20 font-bold text-black' placeholder='Event description' type="text" />
                         </div>
 
