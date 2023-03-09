@@ -13,6 +13,7 @@ function App() {
   const [events, setEvents] = useState()
   const [videos, setVideos] = useState()
   const [links, setLinks] = useState()
+  const [service, setService] = useState()
   const [selectedMenu, setSeletctedMenu] = useState({ Home: true })
   const toggleMenu = () => { setShowMenu(!showMenu) }
 
@@ -41,6 +42,7 @@ function App() {
     fetchDocument(collection, 'Events', setEvents)
     fetchDocument(collection, 'Videos', setVideos)
     fetchDocument(collection, 'Links', setLinks)
+    fetchDocument(collection, 'ServiceTime', setService)
   }, [])
 
   return (
@@ -58,10 +60,10 @@ function App() {
 
       {/* PAGES */}
       {selectedMenu.Home && <Home />}
-      {selectedMenu.Services && <Services events={events} />}
+      {selectedMenu.Services && <Services events={events} service={service} />}
       {selectedMenu.Motivation && <About />}
       {selectedMenu.Media && <Media videos={videos} />}
-      {selectedMenu.Admin && <Admin />}
+      {selectedMenu.Admin && <Admin toggleMenu={toggleMenu} />}
 
 
 
