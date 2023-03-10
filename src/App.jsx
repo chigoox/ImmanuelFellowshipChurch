@@ -59,7 +59,7 @@ function App() {
       {/* end SideMenu */}
 
       {/* PAGES */}
-      {selectedMenu.Home && <Home />}
+      {selectedMenu.Home && <Home setSeletctedMenu={setSeletctedMenu} />}
       {selectedMenu.Services && <Services events={events} service={service} />}
       {selectedMenu.Motivation && <About />}
       {selectedMenu.Media && <Media videos={videos} />}

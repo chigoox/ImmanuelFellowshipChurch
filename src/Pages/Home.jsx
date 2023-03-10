@@ -1,7 +1,7 @@
 import React from 'react'
 import Church from '../assets/rs=w_1024.webp'
 
-function Home() {
+function Home({ setSeletctedMenu }) {
     return (
         <div className='h-fit w-full bg-white'>
             <div className='bg- h-12 flex flex-col justify-center mb-4 items-center bg-black hover:bg-white transition-all duration-1000 ease-in-out'>
@@ -18,7 +18,7 @@ function Home() {
                 </h1>
             </div>
             <div className="flex m-8">
-                <button className='bg-slate-400 rounded-xl m-auto w-32 h-12 hover:bg-blue-400 font-bold transition-all hover:scale-125 duration-700 ease-in-out text-white fontxxx text-2xl'>Join us</button>
+                <button onClick={() => { setSeletctedMenu({ Services: true }) }} className='bg-slate-400 rounded-xl m-auto w-32 h-12 hover:bg-blue-400 font-bold transition-all hover:scale-125 duration-700 ease-in-out text-white fontxxx text-2xl'>Join us</button>
             </div>
         </div>
     )

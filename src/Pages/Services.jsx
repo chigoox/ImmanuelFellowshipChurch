@@ -36,7 +36,7 @@ function Services({ events, service }) {
     return (
         <div className='h-fit w-full lg:p-8'>
             <div className='overflow-hidden'>
-                <h1 className='bg-white overflow-hidden mb-9 text-center font-bold text-4xl'>Services and Events</h1>
+                <h1 className='bg-white overflow-hidden mb-9 text-center font-bold text-4xl fontxxx'>Services and Events</h1>
             </div>
             <div className='h-[48rem] w-full overflow-y-scroll flex flex-col lg:flex-row p-2 lg:p-8 relative justify-center items-center'>
                 <div className='bg-white rounded mt-40 lg:mt-0 w-[95%] lg:w-[50rem] h-[30rem] m-2 shadow-sm shadow-black'>
