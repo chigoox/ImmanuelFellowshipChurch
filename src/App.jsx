@@ -94,7 +94,7 @@ function App() {
           </div>
         </div>
 
-        <h1 className='text-center text-white lg:mt-16'>Copyright © 2020 Immanuel Fellowship Church - All Rights Reserved.</h1>
+        <h1 className='text-center text-white lg:mt-16'>Copyright © 2023 Immanuel Fellowship Church - All Rights Reserved.</h1>
       </div>
 
 
