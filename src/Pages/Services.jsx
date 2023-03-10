@@ -34,11 +34,11 @@ function Services({ events, service }) {
     }
 
     return (
-        <div className='h-fit w-full p-8'>
+        <div className='h-fit w-full lg:p-8'>
             <div className='overflow-hidden'>
                 <h1 className='bg-white overflow-hidden mb-9 text-center font-bold text-4xl'>Services and Events</h1>
             </div>
-            <div className='h-[48rem] overflow-y-scroll flex flex-col lg:flex-row p-8 relative justify-center items-center'>
+            <div className='h-[48rem] w-full overflow-y-scroll flex flex-col lg:flex-row p-2 lg:p-8 relative justify-center items-center'>
                 <div className='bg-white rounded mt-40 lg:mt-0 w-[95%] lg:w-[50rem] h-[30rem] m-2 shadow-sm shadow-black'>
                     <div className="flex flex-col p-4">
                         <h1 className='text-4xl  font-bold text-center w-full'>Regular Service Schedule</h1>
@@ -50,7 +50,7 @@ function Services({ events, service }) {
                 </div>
                 <div className='bg-white w-full  lg:w-[50rem] h-[30rem] m-2 shadow-sm shadow-black rounded-lg p-4'>
                     <h1 className='text-2xl font-bold text-center w-full rounded'>Events</h1>
-                    <div className='overflow-y-scroll justify-center gap-2 flex flex-wrap h-96 border-y-4 border-slate-500 rounded-xl'>
+                    <div className='overflow-y-scroll justify-center  gap-2 flex flex-wrap h-96 border-y-4 border-slate-500 rounded-xl'>
                         {eventsMap}
 
                     </div>
