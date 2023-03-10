@@ -9,12 +9,12 @@ function Media({ videos }) {
 
             <div className='w-[60%] m-auto'>
                 <div className='py-14'>
-                    <h1 className='text-center my-4 font-bold text-3xl'>Listen to our Bible Teaching Series</h1>
+                    <h1 className='text-center my-4 font-bold text-5xl fontxxx'>Listen to our Bible Teaching Series</h1>
                     <div className='flex md:flex-row flex-col items-center justify-around text-center'>
 
                         <div className='w-96 m-6 lg:m-0'>
-                            <h1 className='my-2 font-semibold'>Sunday Service</h1>
-                            <h1>Every Sunday, Pastor Robert or
+                            <h1 className='my-2 text-2xl font-semibold'>Sunday Service</h1>
+                            <h1 className='text-xl'>Every Sunday, Pastor Robert or
                                 an invited minister brings an
                                 edifying message to the
                                 congregation.
@@ -22,8 +22,8 @@ function Media({ videos }) {
                         </div>
 
                         <div className='w-96 m-6 lg:m-0'>
-                            <h1 className='my-2 font-semibold'>Thursday Night Bible Study</h1>
-                            <h1>On Thursday nights there is
+                            <h1 className='my-2 text-2xl font-semibold'>Thursday Night Bible Study</h1>
+                            <h1 className='text-xl'>On Thursday nights there is
                                 an interactive study through
                                 a book of the Bible or on a topic
                                 of importance to helping Believers
@@ -42,7 +42,7 @@ function Media({ videos }) {
                 <div className='flex lg:felx-row flex-col'>
                     <div className='h-content m-10 p-10'>
                         <iframe className='lg:w-[600px] border-4 lg:h-[400px] relative bottom-14'
-                            src={`https://www.youtube.com/embed/${videos.vid1}`}>
+                            src={`https://www.youtube.com/embed/${videos?.vid1}`}>
                         </iframe>
                     </div>
                     <div className='p-10 m-10'>
@@ -57,7 +57,7 @@ function Media({ videos }) {
                     </div>
                     <div className='h-content m-10 p-10'>
                         <iframe className='lg:w-[600px] border-4 lg:h-[400px] relative bottom-14'
-                            src={`https://www.youtube.com/embed/${videos.vid2}`}>
+                            src={`https://www.youtube.com/embed/${videos?.vid2}`}>
 
                         </iframe>
                     </div>

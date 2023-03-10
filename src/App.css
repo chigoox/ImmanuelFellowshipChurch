@@ -26,3 +26,13 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(26, 26, 32);
 }
+
+
+*{
+font-family: 'Lora', serif;
+
+}
+
+.fontxxx{
+  font-family: 'Yellowtail', cursive;
+}
