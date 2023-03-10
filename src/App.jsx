@@ -52,7 +52,7 @@ function App() {
         <div className={`w-full items-center flex flex-col justify-center  bg-white shadow-sm shadow-black h-full transition-all duration-500 ease-in-out`}>
           {menuMap}
         </div>
-        <button onClick={toggleMenu} className={`relative ${showMenu ? ' right-14 text-black' : 'text-black hover:text-white bg-white  hover:bg-black p-1'}  w-10 h-10 text-3xl rounded-xl transition-all duration-500 ease-in-out hover:scale-110 mt-14`}>
+        <button onClick={toggleMenu} className={`relative ${showMenu ? ' right-14 text-black' : 'text-black hover:text-white bg-white  hover:bg-black p-1'}  w-10 h-10 text-3xl rounded-xl transition-all duration-500 ease-in-out hover:scale-110 ml-1 mt-14`}>
           {showMenu ? <AiOutlineClose /> : <AiOutlineMenu />}
         </button>
       </div>
@@ -63,7 +63,7 @@ function App() {
       {selectedMenu.Services && <Services events={events} service={service} />}
       {selectedMenu.Motivation && <About />}
       {selectedMenu.Media && <Media videos={videos} />}
-      {selectedMenu.Admin && <Admin />}
+      {selectedMenu.Admin && <Admin setSeletctedMenu={setSeletctedMenu} />}
 
 
 

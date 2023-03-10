@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import { handleInput5, addToDatabase } from '../MyCodes/ed5'
 
-function Admin() {
+function Admin({ setSeletctedMenu }) {
     const addEvent = (data) => {
         setColor(true)
         addToDatabase('DATASTORE', 'Events', 'events', { [data.title]: data })
@@ -31,9 +31,10 @@ function Admin() {
     return (
         <div className='bg-white h-fit w-full relative overflow-y-scroll flex flex-col justify-center border-black border items-center'>
             {!passwordCorrect && <div className='absolute z-20 bg-rose-700 h-full w-full flex'>
-                <div className="h-[50%] w-[90%] lg:w-[40%] m-auto bg-slate-900">
+                <div className="h-[50%] w-[90%] flex flex-col items-center justify-center lg:w-[40%] m-auto bg-slate-900">
                     <h1 className='text-4xl text-white text-center font-bold'>PASSWORD?</h1>
-                    <input onChange={({ target }) => { handleInput5(target.name, target.value, setPassword) }} className='w-full h-24 m-auto text-2xl p-2 text-center' type="password" name="pass" id="" />
+                    <input onChange={({ target }) => { handleInput5(target.name, target.value, setPassword) }} className='w-full h-24  text-2xl p-2 text-center' type="password" name="pass" id="" />
+                    <button onClick={() => { setSeletctedMenu({ Home: true }) }} className='font-bold m-auto hover:text-black text-white hover:scale-150 transition-all duration-700 ease-in-out hover:bg-white text-3xl border-2 rounded-full p-4'>Return Home</button>
                 </div>
             </div>}
             <div className='py-4 w-full'>
@@ -56,6 +57,7 @@ function Admin() {
                             </div>
 
                             <textarea name='desc' onChange={({ target }) => { handleInput5(target.name, target.value, setEvent) }} className='focus:scale-110 duration-500 ease-in-out transition-all w-[90%] m-1 h-20 font-bold text-black' placeholder='Event description' type="text" />
+                            <button onClick={() => { addEvent(event) }} className='m-auto my-4 font-bold hover:scale-110 transition-all duration-500 ease-in-out hover:text-white text-black hover:bg-emerald-600 bg-rose-700 rounded-full p-4'>Add Event</button>
                         </div>
 
                         <div className={`${color ? 'bg-blue-500' : ''} hover:top-5 top-0 hover:scale-105 transition-all duration-[1000ms] ease-in-out relative shadow p-4 shadow-black flex flex-col justify-center items-center h-[75%]`}>
@@ -66,7 +68,6 @@ function Admin() {
                             <input className='p-2 m-auto my-2 w-[90%] shadow-sm shadow-black h-12 font-bold text-black focus:scale-110 duration-500 ease-in-out transition-all' type="time" placeholder='Video ID2' onChange={({ target }) => { addToDatabase('DATASTORE', 'ServiceTime', 'thursdayTime', timeConvert(target.value)) }} />
                         </div>
 
-                        <button onClick={() => { addEvent(event) }} className='m-auto mt-8 font-bold hover:scale-110 transition-all duration-500 ease-in-out hover:text-white text-black hover:bg-emerald-600 bg-rose-700 rounded-full p-4'>Add Event</button>
                     </div>
                 </div>
             </div>
