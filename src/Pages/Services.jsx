@@ -39,11 +39,11 @@ function Services({ events, service }) {
                 <h1 className='bg-white overflow-hidden mb-9 text-center font-bold text-4xl fontxxx'>Services and Events</h1>
             </div>
             <div className='h-[48rem] w-full overflow-y-scroll flex flex-col lg:flex-row p-2 lg:p-8 relative justify-center items-center'>
-                <div className='bg-white rounded mt-40 lg:mt-0 w-[95%] lg:w-[50rem] h-[30rem] m-2 shadow-sm shadow-black'>
+                <div className='rounded mt-40 lg:mt-0 w-[95%] lg:w-[50rem] h-[30rem] m-2'>
                     <div className="flex flex-col p-4">
                         <h1 className='text-4xl  font-bold text-center w-full'>Regular Service Schedule</h1>
-                        <h1 className='font-bold text-2xl my-4 text-center w-full'> Sunday Worship - {service?.sundayTime} Contemporary service</h1>
-                        <h1 className='font-bold text-xl my-2 text-center w-full'>
+                        <h1 className='font-bold text-xl my-4 text-center w-full'> Sunday Worship - {service?.sundayTime} Contemporary service</h1>
+                        <h1 className='font-bold text-lg my-2 text-center w-full'>
                             Thursday Bible Study - {service?.thursdayTime} Interactive discussion - style Bible study
                         </h1>
                     </div>
